@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Restaurant Vanille – Cuisine malgache</title>
+<meta name="description" content="Restaurant Vanille : cuisine malgache faite maison. Menu, horaires et réservation par WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Instrument+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2F5E6; --ink:#17261E; --green:#2D6A4F; --vanilla:#EDB82E; --red:#B23A29; --line:#C9D2B8;
+  --head:"Bricolage Grotesque","Trebuchet MS",Arial,sans-serif;
+  --body:"Instrument Sans",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.6;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+
+/* lamba stripes: the one memorable element */
+.lamba{height:22px;background:repeating-linear-gradient(90deg,var(--ink) 0 22px,var(--paper) 22px 30px,var(--red) 30px 52px,var(--paper) 52px 60px,var(--vanilla) 60px 82px,var(--paper) 82px 90px,var(--green) 90px 112px,var(--paper) 112px 120px)}
+
+header.top{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;max-width:720px;margin:0 auto}
+.logo{font-family:var(--head);font-weight:800;font-size:1.2rem;text-decoration:none}
+nav a{margin-left:16px;text-decoration:none;font-weight:600;font-size:.95rem}
+nav a:hover{color:var(--green);text-decoration:underline}
+
+.hero{padding:36px 0 44px}
+.hero h1{font-family:var(--head);font-weight:800;font-size:clamp(2.6rem,12vw,4.6rem);line-height:1;letter-spacing:-.02em}
+.hero p{margin:20px 0 28px;max-width:34ch;font-size:1.1rem}
+.btn{display:inline-block;background:var(--green);color:#fff;padding:14px 24px;border-radius:999px;font-weight:600;text-decoration:none;border:0;font-size:1rem;cursor:pointer}
+.btn:hover{background:#1f4d38}
+
+section{padding:44px 0;border-top:1px solid var(--line)}
+h2{font-family:var(--head);font-weight:800;font-size:2rem;margin-bottom:18px;letter-spacing:-.01em}
+
+.tabs{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.tabs button{font:inherit;font-weight:600;padding:8px 16px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.item{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px dashed var(--line)}
+.item h3{font-family:var(--head);font-size:1.15rem}
+.item p{font-size:.95rem;opacity:.8}
+.price{font-weight:600;white-space:nowrap}
+.hidden{display:none}
+
+.hours{display:grid;grid-template-columns:auto 1fr;gap:6px 24px}
+.hours dt{font-weight:600}.hours dd{margin:0}
+
+.resa{background:var(--green);color:#fff;border-radius:20px;padding:28px;margin-top:8px}
+.resa label{display:block;font-weight:600;margin:14px 0 6px}
+.resa input,.resa select{width:100%;padding:12px;border-radius:10px;border:0;font:inherit}
+.resa .btn{background:var(--vanilla);color:var(--ink);margin-top:20px;width:100%;text-align:center}
+.resa .btn:hover{background:#d9a61f}
+
+footer{padding:30px 0 44px;font-size:.9rem;opacity:.85}
+</style>
+</head>
+<body>
+<div class="lamba" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="logo" href="#">Vanille</a>
+  <nav><a href="#menu">Menu</a><a href="#infos">Infos</a><a href="#reserver">Réserver</a></nav>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <h1>La cuisine malgache, comme à la maison.</h1>
+    <p>Romazava, ravitoto, poulet au lait de coco. Des plats mijotés chaque jour, servis chauds.</p>
+    <a class="btn" href="#reserver">Réserver une table</a>
+  </div>
+
+  <section id="menu">
+    <h2>Le menu</h2>
+    <div class="tabs" role="group" aria-label="Catégories du menu">
+      <button type="button" data-cat="plats" aria-pressed="true">Plats</button>
+      <button type="button" data-cat="desserts" aria-pressed="false">Desserts</button>
+      <button type="button" data-cat="boissons" aria-pressed="false">Boissons</button>
+    </div>
+
+    <div data-list="plats">
+      <div class="item"><div><h3>Romazava</h3><p>Bouillon de zébu et de brèdes, servi avec du riz.</p></div><span class="price">18 000 Ar</span></div>
+      <div class="item"><div><h3>Ravitoto sy henan-kisoa</h3><p>Feuilles de manioc pilées et porc mijoté.</p></div><span class="price">20 000 Ar</span></div>
+      <div class="item"><div><h3>Akoho sy voanio</h3><p>Poulet au lait de coco, riz blanc.</p></div><span class="price">22 000 Ar</span></div>
+      <div class="item"><div><h3>Poisson grillé</h3><p>Tilapia du jour, riz et lasary de légumes.</p></div><span class="price">24 000 Ar</span></div>
+    </div>
+    <div data-list="desserts" class="hidden">
+      <div class="item"><div><h3>Banane flambée</h3><p>À la vanille de Madagascar.</p></div><span class="price">8 000 Ar</span></div>
+      <div class="item"><div><h3>Koba</h3><p>Gâteau d’arachide et de riz, cuit dans une feuille.</p></div><span class="price">4 000 Ar</span></div>
+    </div>
+    <div data-list="boissons" class="hidden">
+      <div class="item"><div><h3>Jus de fruits frais</h3><p>Mangue, litchi ou ananas selon la saison.</p></div><span class="price">5 000 Ar</span></div>
+      <div class="item"><div><h3>Thé à la vanille</h3><p>Servi chaud, avec du miel.</p></div><span class="price">3 000 Ar</span></div>
+    </div>
+  </section>
+
+  <section id="infos">
+    <h2>Infos pratiques</h2>
+    <dl class="hours">
+      <dt>Lundi à samedi</dt><dd>11 h 30 – 22 h</dd>
+      <dt>Dimanche</dt><dd>11 h 30 – 15 h</dd>
+      <dt>Adresse</dt><dd>12 rue des Jacarandas, centre-ville</dd>
+      <dt>Téléphone</dt><dd>+261 34 00 000 00</dd>
+    </dl>
+  </section>
+
+  <section id="reserver">
+    <h2>Réserver</h2>
+    <div class="resa">
+      <p>Choisissez le jour et le nombre de personnes. Votre demande part sur WhatsApp et nous confirmons rapidement.</p>
+      <label for="date">Jour</label>
+      <input id="date" type="date">
+      <label for="pers">Nombre de personnes</label>
+      <select id="pers">
+        <option>1</option><option>2</option><option selected>3</option><option>4</option>
+        <option>5</option><option>6</option><option>7</option><option>8</option>
+      </select>
+      <a class="btn" id="wa" href="#">Envoyer sur WhatsApp</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Site de démonstration. Le restaurant, l’adresse et le numéro sont fictifs.</div>
+</footer>
+<div class="lamba" aria-hidden="true"></div>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.tabs button'), lists=document.querySelectorAll('[data-list]');
+  tabs.forEach(function(b){
+    b.addEventListener('click',function(){
+      tabs.forEach(function(x){x.setAttribute('aria-pressed',x===b)});
+      lists.forEach(function(l){l.classList.toggle('hidden',l.dataset.list!==b.dataset.cat)});
+    });
+  });
+  var wa=document.getElementById('wa'), date=document.getElementById('date'), pers=document.getElementById('pers');
+  function update(){
+    var msg='Bonjour, je souhaite réserver une table pour '+pers.value+' personne(s)'+(date.value?' le '+date.value:'')+'.';
+    wa.href='https://wa.me/261340000000?text='+encodeURIComponent(msg);
+  }
+  date.addEventListener('change',update); pers.addEventListener('change',update); update();
+})();
+</script>
+</body>
+</html>
